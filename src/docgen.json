@@ -370,7 +370,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function that returns the current position object.\n\nSignature: function(currentPosition: object) => void",
+      "description": "A function that gives access to the current position object.\n\nSignature: function(currentPosition: object) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false

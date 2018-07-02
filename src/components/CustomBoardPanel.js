@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Chessboard from 'chessboardjsx';
-import rough from 'roughjs';
 
-import wK from '../elvis.png';
-import bK from '../lebron.png';
 import './styles/customBoardPanel.css';
 
 class CustomBoardPanel extends Component {
@@ -28,6 +23,7 @@ class CustomBoardPanel extends Component {
           {open || pathname === '/custom' ? (
             <div style={panelStyle}>
               <iframe
+                title="custom board example"
                 src="https://codesandbox.io/embed/61l3np87pw?codemirror=1&view=preview"
                 style={{
                   width: '95%',

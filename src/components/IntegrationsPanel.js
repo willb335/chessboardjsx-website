@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Chessboard from 'chessboardjsx';
 
 import './styles/integrationPanel.css';
 
@@ -142,6 +139,7 @@ function WithMoveValidation({
         {open || pathname === '/integrations/withMoveValidation' ? (
           <div style={panelStyle}>
             <iframe
+              title="move validation example"
               src="https://codesandbox.io/embed/61l3np87pw?codemirror=1&view=preview"
               style={{
                 width: '95%',
@@ -177,6 +175,7 @@ function RandomVsRandom({
         {open || pathname === '/integrations/randomVsRandom' ? (
           <div style={panelStyle}>
             <iframe
+              title="random vs random example"
               src="https://codesandbox.io/embed/oqkq2yqkwq?codemirror=1&view=preview"
               style={{
                 width: '95%',
@@ -207,6 +206,7 @@ function Stockfish({ history, pathname, open, handleStockfishClick }) {
         {open || pathname === '/integrations/stockfish' ? (
           <div style={panelStyle}>
             <iframe
+              title="stockfish engine example"
               src="https://codesandbox.io/embed/432vylv590?codemirror=1&view=preview"
               style={{
                 width: '95%',

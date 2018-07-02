@@ -3,8 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Chessboard from 'chessboardjsx';
-import Typography from '@material-ui/core/Typography';
-import rough from 'roughjs';
+import { rough } from './roughjs/dist/rough';
 
 import Header from './components/Header';
 import BasicUseagePanel from './components/BasicUseagePanel';
@@ -154,6 +153,7 @@ class App extends Component {
                           chessboard on standard and touch devices. It
                           integrates easily with&nbsp;
                           <a
+                            rel="noopener noreferrer"
                             target="_blank"
                             href="https://github.com/jhlywa/chess.js/blob/master/README.md"
                           >
