@@ -16,15 +16,6 @@ jobs:
             name: Building
             command: npm run build
          # Steps to be added
-
-  # The deploy job
-  deploy:
-    # working_directory: ~/chessboardjsx-website
-    docker:
-        - image: circleci/node:6.10-browsers
-    steps:
-        - checkout
-        # Install AWS cli
         - run:
             name: Install aws cli
             command:
@@ -36,22 +27,45 @@ jobs:
         # Deploy to the S3 bucket
         - run:
             name: Deploy to S3
-            command: aws s3 sync public s3://chessboardjsx/ --delete
+            command: aws s3 sync build s3://chessboardjsx/ --delete
         # Steps to be added
 
-
-workflows:
-    version: 2
-    # The build and deploy workflow
-    build_and_deploy:
-        jobs:
-            - build
-            # The deploy job will only run on the filtered branches and
-            # require the build job to be successful before it starts
-            - deploy:
-                requires:
-                    - build
-                filters:
-                    branches:
-                        only:
-                            - master
+  # The deploy job
+#   deploy:
+#     # working_directory: ~/chessboardjsx-website
+#     docker:
+#         - image: circleci/node:6.10-browsers
+#     steps:
+#         # - checkout:
+#         #     path: ~/project/build
+#         # Install AWS cli
+#         - run:
+#             name: Install aws cli
+#             command:
+#                 sudo apt-get -y -qq install awscli
+#        # Set the signature version for the S3 auth
+#         - run:
+#             name: Setting Signature Version 4 for S3 Request Authentication
+#             command: aws configure set default.s3.signature_version s3v4
+#         # Deploy to the S3 bucket
+#         - run:
+#             name: Deploy to S3
+#             command: aws s3 sync build s3://chessboardjsx/ --delete
+#         # Steps to be added
+#
+#
+# workflows:
+#     version: 2
+#     # The build and deploy workflow
+#     build_and_deploy:
+#         jobs:
+#             - build
+#             # The deploy job will only run on the filtered branches and
+#             # require the build job to be successful before it starts
+#             - deploy:
+#                 requires:
+#                     - build
+#                 filters:
+#                     branches:
+#                         only:
+#                             - master
