@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  padding: 0 10px 5px 10px;
+}
+
+.header-root {
+  background: linear-gradient(to right, #576c85, #39526f) !important;
+  /* background-color: #576c85 !important; */
+}
+
+.title {
+  font-weight: 900 !important;
+  font-family: 'Open Sans', sans-serif !important;
+  color: white !important;
+}
+
+.description {
+  font-size: 17px;
+  text-align: center;
+  color: white;
+  font-weight: 200;
+  margin-top: 10px;
+}
+
+.github-button-root {
+  font-size: 17px !important;
+  font-weight: 300 !important;
+  border: 1px solid white !important;
+  border-radius: 2px;
+}

@@ -1,0 +1,8 @@
+.table-root {
+  width: auto !important;
+  overflow: auto !important;
+}
+
+.props-expansion-root {
+  background: linear-gradient(to right, #fff2dd, #aa874f) !important;
+}

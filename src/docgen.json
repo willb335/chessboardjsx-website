@@ -1,0 +1,380 @@
+{
+  "description": "",
+  "displayName": "Chessboard",
+  "methods": [
+    {
+      "name": "updateWindowDimensions",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "getDerivedStateFromProps",
+      "docblock": null,
+      "modifiers": [
+        "static"
+      ],
+      "params": [
+        {
+          "name": "props",
+          "type": null
+        },
+        {
+          "name": "state",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "wasManuallyDropped",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "bool",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "setPosition",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "piece",
+          "type": null
+        },
+        {
+          "name": "sourceSquare",
+          "type": null
+        },
+        {
+          "name": "targetSquare",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "setTouchState",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    }
+  ],
+  "props": {
+    "position": {
+      "type": {
+        "name": "union",
+        "value": [
+          {
+            "name": "string"
+          },
+          {
+            "name": "object"
+          }
+        ]
+      },
+      "required": false,
+      "description": "The position to display on the board.  Can be either a FEN string or a position object.",
+      "defaultValue": {
+        "value": "''",
+        "computed": false
+      }
+    },
+    "orientation": {
+      "type": {
+        "name": "enum",
+        "value": [
+          {
+            "value": "'white'",
+            "computed": false
+          },
+          {
+            "value": "'black'",
+            "computed": false
+          }
+        ]
+      },
+      "required": false,
+      "description": "If 'black' then row 8 will be the bottom row, if 'white' row 1 will be the bottom row.",
+      "defaultValue": {
+        "value": "'white'",
+        "computed": false
+      }
+    },
+    "sparePieces": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "If true, spare pieces will appear above and below the board.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
+    "width": {
+      "type": {
+        "name": "number"
+      },
+      "required": false,
+      "description": "The width in pixels.  For a responsive width, use calcWidth.",
+      "defaultValue": {
+        "value": "560",
+        "computed": false
+      }
+    },
+    "defaultPieces": {
+      "type": {
+        "name": "objectOf",
+        "value": {
+          "name": "object"
+        }
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "defaultPieces",
+        "computed": true
+      }
+    },
+    "dropOffBoard": {
+      "type": {
+        "name": "enum",
+        "value": [
+          {
+            "value": "'snapback'",
+            "computed": false
+          },
+          {
+            "value": "'trash'",
+            "computed": false
+          }
+        ]
+      },
+      "required": false,
+      "description": "The behavior of the piece when dropped off the board. 'snapback' brings the piece\nback to it's original square and 'trash' deletes the piece from the board",
+      "defaultValue": {
+        "value": "'snapback'",
+        "computed": false
+      }
+    },
+    "onDrop": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "The logic to be performed after the drop.  This is where to check if moves are legal with\na library like chess.js.\n\nSignature: function(sourceSquare: string, targetSquare: string) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "draggable": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "If false, the pieces will not be draggable",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    },
+    "transitionDuration": {
+      "type": {
+        "name": "number"
+      },
+      "required": false,
+      "description": "The time it takes for a piece to slide to the target square.  This is only used\nwhen the next position comes from the position prop.  If the next position comes in before\nthe transition is complete, then the animation will appear glitchey.",
+      "defaultValue": {
+        "value": "300",
+        "computed": false
+      }
+    },
+    "showNotation": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "If false, no notation will be shown on the board.",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    },
+    "lightSquareStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the light square.",
+      "defaultValue": {
+        "value": "{ backgroundColor: 'rgb(240, 217, 181)' }",
+        "computed": false
+      }
+    },
+    "darkSquareStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the dark square.",
+      "defaultValue": {
+        "value": "{ backgroundColor: 'rgb(181, 136, 99)' }",
+        "computed": false
+      }
+    },
+    "boardStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the board.",
+      "defaultValue": {
+        "value": "{}",
+        "computed": false
+      }
+    },
+    "id": {
+      "type": {
+        "name": "union",
+        "value": [
+          {
+            "name": "string"
+          },
+          {
+            "name": "number"
+          }
+        ]
+      },
+      "required": false,
+      "description": "The id is necessary if more than one board is mounted.\nThis is needed to identify the correct dropzone for the piece.",
+      "defaultValue": {
+        "value": "'0'",
+        "computed": false
+      }
+    },
+    "roughSquare": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function that gives access to the underlying square element.  This\nallows for more customizations with rough.js.\n\nSignature: function(node, squareWidth: number) => void\nnode: the underlying dom node for the square",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "selectedSquares": {
+      "type": {
+        "name": "array"
+      },
+      "required": false,
+      "description": "A collection of squares, useful for legal move highlighting",
+      "defaultValue": {
+        "value": "[]",
+        "computed": false
+      }
+    },
+    "selectedSquareStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the selected squares.",
+      "defaultValue": {
+        "value": "{\n  background: `radial-gradient(circle, #fffc00 36%, transparent 40%)`,\n  borderRadius: `50%`\n}",
+        "computed": false
+      }
+    },
+    "onMouseOverSquare": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when the mouse is over the square.  It takes one argument, the square\nthat the mouse is over (onMouseOverSquare(square)).  Not compatable with touch devices.\n\nSignature: function(square: string) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onMouseOutSquare": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when the mouse has left the square.\n\nSignature: function() => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onHoverSquareStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the hovered square.",
+      "defaultValue": {
+        "value": "{ boxShadow: `inset 0 0 1px 4px yellow` }",
+        "computed": false
+      }
+    },
+    "renderPieces": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "renderPieces",
+        "computed": true
+      }
+    },
+    "pieces": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "An object containing custom pieces.  The values can be imported images or\nsvg objects.",
+      "defaultValue": {
+        "value": "{}",
+        "computed": false
+      }
+    },
+    "calcWidth": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function for responsive width control, returns width.\n\nSignature: function(screenWidth: number, screenHeight: number) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "getPosition": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function that returns the current position object.\n\nSignature: function(currentPosition: object) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    }
+  }
+}
