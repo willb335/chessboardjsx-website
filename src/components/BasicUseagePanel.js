@@ -186,6 +186,7 @@ function EmptyBoard({ history, pathname, handleEmptyBoardClick, open }) {
         expanded={open || pathname.includes('/basics/emptyBoard')}
       >
         <ExpansionPanelSummary
+          classes={{ root: 'emptyBoard-expansion-root' }}
           onClick={() => handleEmptyBoardClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
@@ -214,6 +215,7 @@ function StartPosition({ history, pathname, handleStartPositionClick, open }) {
         expanded={open || pathname.includes('/basics/startPosition')}
       >
         <ExpansionPanelSummary
+          classes={{ root: 'startPosition-expansion-root' }}
           onClick={() => handleStartPositionClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
@@ -243,6 +245,7 @@ function FENString({ history, pathname, open, handleFENStringClick }) {
     <div>
       <ExpansionPanel expanded={open || pathname.includes('/basics/fenString')}>
         <ExpansionPanelSummary
+          classes={{ root: 'fenString-expansion-root' }}
           onClick={() => handleFENStringClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
@@ -268,7 +271,14 @@ function FENString({ history, pathname, open, handleFENStringClick }) {
   );
 }
 
-const positionObjectCode = `<Chessboard position={{ e5: 'wK', e4: 'wP', e7: 'bK' }} />`;
+const positionObjectCode = `<Chessboard
+    position={{
+      e5: 'wK',
+      e4: 'wP',
+      e7: 'bK'
+    }}
+    sparePieces={true}
+  />`;
 
 function PositionObject({
   history,
@@ -282,10 +292,11 @@ function PositionObject({
         expanded={open || pathname.includes('/basics/positionObject')}
       >
         <ExpansionPanelSummary
+          classes={{ root: 'positionObject-expansion-root' }}
           onClick={() => handlePositionObjectClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography>Position Object</Typography>
+          <Typography>Position Object with Spare Pieces</Typography>
         </ExpansionPanelSummary>
         <div style={panelStyle}>
           <Typography align="left">
@@ -303,6 +314,7 @@ function PositionObject({
                 e7: 'bK'
               }}
               id="posObject"
+              sparePieces={true}
             />
           ) : null}
         </div>
@@ -329,6 +341,7 @@ function MulitpleBoards({
         expanded={open || pathname.includes('/basics/multipleBoards')}
       >
         <ExpansionPanelSummary
+          classes={{ root: 'multipleBoards-expansion-root' }}
           onClick={() => handleMultipleBoardsClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
@@ -382,7 +395,10 @@ const panelStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  width: '100%'
+  width: '100%',
+  paddingTop: 10,
+  paddingBottom: 20,
+  backgroundColor: '#7d8da1'
 };
 
 const highlight = {

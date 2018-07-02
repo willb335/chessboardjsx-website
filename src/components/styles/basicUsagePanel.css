@@ -1,3 +1,21 @@
 .basic-expansion-root {
   background: linear-gradient(to right, #d9b394, #784922) !important;
 }
+
+.emptyBoard-expansion-root {
+  background-color: #adbdd2 !important;
+}
+
+.startPosition-expansion-root {
+  background-color: #adbdd2 !important;
+}
+.fenString-expansion-root {
+  background-color: #adbdd2 !important;
+}
+.positionObject-expansion-root {
+  background-color: #adbdd2 !important;
+}
+
+.multipleBoards-expansion-root {
+  background-color: #adbdd2 !important;
+}

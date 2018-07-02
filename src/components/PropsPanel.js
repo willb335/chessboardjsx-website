@@ -46,27 +46,35 @@ class PropsPanel extends Component {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell padding="dense">Name</TableCell>
-                    <TableCell padding="dense">Type</TableCell>
-                    <TableCell padding="dense">Default</TableCell>
-                    <TableCell padding="dense">Description</TableCell>
+                    <TableCell style={headerCellStyle} padding="dense">
+                      Name
+                    </TableCell>
+                    <TableCell style={headerCellStyle} padding="dense">
+                      Type
+                    </TableCell>
+                    <TableCell style={headerCellStyle} padding="dense">
+                      Default
+                    </TableCell>
+                    <TableCell style={headerCellStyle} padding="dense">
+                      Description
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {docgen.map(p => {
+                  {docgen.map((p, i) => {
                     return (
                       p && (
-                        <TableRow key={p.name}>
-                          <TableCell padding="dense">
+                        <TableRow key={p.name} style={tableRowStyle(i)}>
+                          <TableCell style={tableCellStyle(i)} padding="dense">
                             <div>{p.name}</div>
                           </TableCell>
-                          <TableCell padding="dense">
+                          <TableCell style={tableCellStyle(i)} padding="dense">
                             {this.getType(p)}
                           </TableCell>
-                          <TableCell padding="dense">
+                          <TableCell style={tableCellStyle(i)} padding="dense">
                             <div>{p.default.value}</div>
                           </TableCell>
-                          <TableCell padding="dense">
+                          <TableCell style={tableCellStyle(i)} padding="dense">
                             <div>{p.description}</div>
                           </TableCell>
                         </TableRow>
@@ -84,3 +92,13 @@ class PropsPanel extends Component {
 }
 
 export default PropsPanel;
+
+const tableRowStyle = index => ({
+  backgroundColor: index % 2 ? '#adbdd2' : '#506072'
+});
+
+const tableCellStyle = index => ({
+  color: index % 2 ? 'black' : 'white'
+});
+
+const headerCellStyle = { color: 'black', fontWeight: 600 };

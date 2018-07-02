@@ -8,8 +8,8 @@
 }
 
 .header-root {
-  background: linear-gradient(to right, #576c85, #39526f) !important;
-  /* background-color: #576c85 !important; */
+  /* background: linear-gradient(to right, #576c85, #39526f) !important; */
+  background: linear-gradient(to right, #7d8da1, #506072) !important;
 }
 
 .title {

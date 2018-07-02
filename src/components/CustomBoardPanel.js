@@ -50,5 +50,7 @@ const panelStyle = {
   alignItems: 'center',
   flexDirection: 'column',
   width: '100%',
-  marginTop: 10
+  paddingTop: 10,
+  paddingBottom: 10,
+  backgroundColor: '#7d8da1'
 };

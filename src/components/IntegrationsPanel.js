@@ -131,6 +131,7 @@ function WithMoveValidation({
         expanded={open || pathname.includes('/withMoveValidation')}
       >
         <ExpansionPanelSummary
+          classes={{ root: 'moveValidation-expansion-root' }}
           onClick={() => handleWithMoveValidationClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
@@ -140,7 +141,7 @@ function WithMoveValidation({
           <div style={panelStyle}>
             <iframe
               title="move validation example"
-              src="https://codesandbox.io/embed/61l3np87pw?codemirror=1&view=preview"
+              src="https://codesandbox.io/embed/lp32ojqzqm?codemirror=1&view=preview"
               style={{
                 width: '95%',
                 height: 500,
@@ -167,6 +168,7 @@ function RandomVsRandom({
     <div>
       <ExpansionPanel expanded={open || pathname.includes('/randomVsRandom')}>
         <ExpansionPanelSummary
+          classes={{ root: 'randomVsRandom-expansion-root' }}
           onClick={() => handleRandomVsRandomClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
@@ -198,6 +200,7 @@ function Stockfish({ history, pathname, open, handleStockfishClick }) {
     <div>
       <ExpansionPanel expanded={open || pathname.includes('/stockfish')}>
         <ExpansionPanelSummary
+          classes={{ root: 'stockfish-expansion-root' }}
           onClick={() => handleStockfishClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
@@ -229,5 +232,8 @@ const panelStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  width: '100%'
+  width: '100%',
+  paddingTop: 10,
+  paddingBottom: 10,
+  backgroundColor: '#7d8da1'
 };

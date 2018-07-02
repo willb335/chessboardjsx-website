@@ -192,8 +192,9 @@ const mainContainer = {
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  color: '#39526f',
-  marginBottom: 50
+  color: 'black',
+  marginBottom: 50,
+  backgroundColor: '#7D8DA1'
 };
 
 const calcWidth = (screenWidth, screenHeight) =>
