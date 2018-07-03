@@ -45,7 +45,7 @@ class PropsPanel extends Component {
             <Paper classes={{ root: 'table-root' }}>
               <Table>
                 <TableHead>
-                  <TableRow>
+                  <TableRow style={headerRowStyle}>
                     <TableCell style={headerCellStyle} padding="dense">
                       Name
                     </TableCell>
@@ -64,17 +64,17 @@ class PropsPanel extends Component {
                   {docgen.map((p, i) => {
                     return (
                       p && (
-                        <TableRow key={p.name} style={tableRowStyle(i)}>
-                          <TableCell style={tableCellStyle(i)} padding="dense">
+                        <TableRow key={p.name} style={tableRowStyle}>
+                          <TableCell style={tableCellStyle} padding="dense">
                             <div>{p.name}</div>
                           </TableCell>
-                          <TableCell style={tableCellStyle(i)} padding="dense">
+                          <TableCell style={tableCellStyle} padding="dense">
                             {this.getType(p)}
                           </TableCell>
-                          <TableCell style={tableCellStyle(i)} padding="dense">
+                          <TableCell style={tableCellStyle} padding="dense">
                             <div>{p.default.value}</div>
                           </TableCell>
-                          <TableCell style={tableCellStyle(i)} padding="dense">
+                          <TableCell style={tableCellStyle} padding="dense">
                             <div>{p.description}</div>
                           </TableCell>
                         </TableRow>
@@ -93,12 +93,7 @@ class PropsPanel extends Component {
 
 export default PropsPanel;
 
-const tableRowStyle = index => ({
-  backgroundColor: index % 2 ? '#adbdd2' : '#506072'
-});
-
-const tableCellStyle = index => ({
-  color: index % 2 ? 'black' : 'white'
-});
-
-const headerCellStyle = { color: 'black', fontWeight: 600 };
+const tableRowStyle = { backgroundColor: '#adbdd2' };
+const tableCellStyle = { color: 'black' };
+const headerRowStyle = { backgroundColor: '#506072' };
+const headerCellStyle = { color: 'white', fontWeight: 600 };

@@ -43,13 +43,13 @@ class IntegrationsPanel extends Component {
     const { withMoveValidationPanel } = this.state;
     let pathname = history.location.pathname;
 
-    pathname === '/integrations/withMoveValidation' || withMoveValidationPanel
+    pathname === '/integrations/move-validation' || withMoveValidationPanel
       ? history.push('/integrations')
-      : history.push('/integrations/withMoveValidation');
+      : history.push('/integrations/move-validation');
 
     this.setState(({ withMoveValidationPanel }) => ({
       withMoveValidationPanel:
-        pathname === '/integrations/withMoveValidation'
+        pathname === '/integrations/move-validation'
           ? false
           : !withMoveValidationPanel,
       randomVsRandomPanel: false,
@@ -61,15 +61,13 @@ class IntegrationsPanel extends Component {
     const { randomVsRandomPanel } = this.state;
     let pathname = history.location.pathname;
 
-    pathname === '/integrations/randomVsRandom' || randomVsRandomPanel
+    pathname === '/integrations/random' || randomVsRandomPanel
       ? history.push('/integrations')
-      : history.push('/integrations/randomVsRandom');
+      : history.push('/integrations/random');
 
     this.setState(({ randomVsRandomPanel }) => ({
       randomVsRandomPanel:
-        pathname === '/integrations/randomVsRandom'
-          ? false
-          : !randomVsRandomPanel,
+        pathname === '/integrations/random' ? false : !randomVsRandomPanel,
       withMoveValidationPanel: false,
       stockfishPanel: false
     }));
@@ -127,9 +125,7 @@ function WithMoveValidation({
 }) {
   return (
     <div>
-      <ExpansionPanel
-        expanded={open || pathname.includes('/withMoveValidation')}
-      >
+      <ExpansionPanel expanded={open || pathname.includes('/move-validation')}>
         <ExpansionPanelSummary
           classes={{ root: 'moveValidation-expansion-root' }}
           onClick={() => handleWithMoveValidationClick(history)}
@@ -137,7 +133,7 @@ function WithMoveValidation({
         >
           <Typography>With Move Validation</Typography>
         </ExpansionPanelSummary>
-        {open || pathname === '/integrations/withMoveValidation' ? (
+        {open || pathname === '/integrations/move-validation' ? (
           <div style={panelStyle}>
             <iframe
               title="move validation example"
@@ -166,7 +162,7 @@ function RandomVsRandom({
 }) {
   return (
     <div>
-      <ExpansionPanel expanded={open || pathname.includes('/randomVsRandom')}>
+      <ExpansionPanel expanded={open || pathname.includes('/random')}>
         <ExpansionPanelSummary
           classes={{ root: 'randomVsRandom-expansion-root' }}
           onClick={() => handleRandomVsRandomClick(history)}
@@ -174,7 +170,7 @@ function RandomVsRandom({
         >
           <Typography>Random Vs Random</Typography>
         </ExpansionPanelSummary>
-        {open || pathname === '/integrations/randomVsRandom' ? (
+        {open || pathname === '/integrations/random' ? (
           <div style={panelStyle}>
             <iframe
               title="random vs random example"
