@@ -225,10 +225,10 @@ function Stockfish({ history, pathname, open, handleStockfishClick }) {
 
 const panelStyle = {
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   alignItems: 'center',
   flexDirection: 'column',
-  width: '100%',
+  maxWidth: '100%',
   paddingTop: 10,
   paddingBottom: 10,
   backgroundColor: '#7d8da1'

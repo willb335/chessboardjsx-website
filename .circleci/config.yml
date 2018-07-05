@@ -4,7 +4,9 @@ version: 2
 jobs:
     # The build job
   build:
-    # working_directory: ~/chessboardjsx-website
+    branches:
+      only:
+        - master
     docker:
         - image: circleci/node:6.10-browsers
     steps:
