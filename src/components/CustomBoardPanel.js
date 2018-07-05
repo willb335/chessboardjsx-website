@@ -30,7 +30,7 @@ class CustomBoardPanel extends Component {
                   height: 500,
                   border: 0,
                   borderRadius: 2,
-                  overflow: 'hidden'
+                  overflow: 'scroll'
                 }}
                 sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
               />

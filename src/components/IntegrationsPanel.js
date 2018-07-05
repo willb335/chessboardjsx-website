@@ -143,7 +143,7 @@ function WithMoveValidation({
                 height: 500,
                 border: 0,
                 borderRadius: 2,
-                overflow: 'hidden'
+                overflow: 'scroll'
               }}
               sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
             />
@@ -180,7 +180,7 @@ function RandomVsRandom({
                 height: 500,
                 border: 0,
                 borderRadius: 2,
-                overflow: 'hidden'
+                overflow: 'scroll'
               }}
               sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
             />
@@ -212,7 +212,7 @@ function Stockfish({ history, pathname, open, handleStockfishClick }) {
                 height: 500,
                 border: 0,
                 borderRadius: 2,
-                overflow: 'hidden'
+                overflow: 'scroll'
               }}
               sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
             />
@@ -225,10 +225,10 @@ function Stockfish({ history, pathname, open, handleStockfishClick }) {
 
 const panelStyle = {
   display: 'flex',
-  justifyContent: 'flex-start',
+  justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  maxWidth: '100%',
+  width: '100%',
   paddingTop: 10,
   paddingBottom: 10,
   backgroundColor: '#7d8da1'
