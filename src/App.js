@@ -4,30 +4,13 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Chessboard from 'chessboardjsx';
 import { rough } from './roughjs/dist/rough';
+import MediaQuery from 'react-responsive';
 
 import Header from './components/Header';
 import BasicUseagePanel from './components/BasicUseagePanel';
 import PropsPanel from './components/PropsPanel';
 import IntegrationsPanel from './components/IntegrationsPanel';
 import CustomBoardPanel from './components/CustomBoardPanel';
-
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: ['Open Sans', 'sans-serif', '-apple-system'].join(',')
-  },
-  palette: {
-    primary: {
-      light: '8f4661',
-      main: '#5f1a37',
-      dark: '#320011'
-    },
-    secondary: {
-      light: '#ffffff',
-      main: '#eeeeee',
-      dark: '#bcbcbc'
-    }
-  }
-});
 
 class App extends Component {
   state = {
@@ -103,12 +86,6 @@ class App extends Component {
   };
 
   render() {
-    const {
-      propsPanel,
-      basicUseagePanel,
-      integrationPanel,
-      customBoardPanel
-    } = this.state;
     return (
       <Fragment>
         <CssBaseline>
@@ -119,61 +96,39 @@ class App extends Component {
                 <Route
                   path="/"
                   render={({ history }) => (
-                    <Fragment>
-                      <PropsPanel
-                        history={history}
-                        open={propsPanel}
-                        handlePropsClick={this.handlePropsClick}
-                      />
-                      <BasicUseagePanel
-                        history={history}
-                        open={basicUseagePanel}
-                        handleBasicUsageClick={this.handleBasicUsageClick}
-                      />
-                      <IntegrationsPanel
-                        history={history}
-                        open={integrationPanel}
-                        handleIntegrationsClick={this.handleIntegrationsClick}
-                      />
-                      <CustomBoardPanel
-                        history={history}
-                        open={customBoardPanel}
-                        handleCustomBoardClick={this.handleCustomBoardClick}
-                      />
-
-                      <div style={mainContainer}>
-                        <p
-                          style={{
-                            paddingLeft: 15,
-                            paddingRight: 15
-                          }}
-                        >
-                          <b>Chessboard.jsx</b> is a customizable chessboard
-                          component that works as a standalone drag and drop
-                          chessboard on standard and touch devices. It
-                          integrates easily with&nbsp;
-                          <a
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href="https://github.com/jhlywa/chess.js/blob/master/README.md"
-                          >
-                            chess.js
-                          </a>, allowing for move validation, engine
-                          integrations, and more.
-                        </p>
-                        <pre style={highlight}>
-                          <code>npm install --save chessboardjsx</code>
-                        </pre>
-                        <Chessboard
-                          calcWidth={calcWidth}
-                          boardStyle={boardStyle}
-                          position={
-                            '2R5/4bppk/1p1p3Q/5R1P/4P3/5P2/r4q1P/7K b - - 6 50'
-                          }
-                          roughSquare={roughSquare}
-                        />
-                      </div>
-                    </Fragment>
+                    <MediaQuery minDeviceWidth={1024}>
+                      {matches =>
+                        matches ? (
+                          <div style={wideScreenGrid}>
+                            <div />
+                            <FrontPage
+                              state={this.state}
+                              history={history}
+                              handlePropsClick={this.handlePropsClick}
+                              handleBasicUsageClick={this.handleBasicUsageClick}
+                              handleIntegrationsClick={
+                                this.handleIntegrationsClick
+                              }
+                              handleCustomBoardClick={
+                                this.handleCustomBoardClick
+                              }
+                            />
+                            <div />
+                          </div>
+                        ) : (
+                          <FrontPage
+                            state={this.state}
+                            history={history}
+                            handlePropsClick={this.handlePropsClick}
+                            handleBasicUsageClick={this.handleBasicUsageClick}
+                            handleIntegrationsClick={
+                              this.handleIntegrationsClick
+                            }
+                            handleCustomBoardClick={this.handleCustomBoardClick}
+                          />
+                        )
+                      }
+                    </MediaQuery>
                   )}
                 />
               </div>
@@ -187,14 +142,92 @@ class App extends Component {
 
 export default App;
 
+function FrontPage({
+  state,
+  history,
+  handlePropsClick,
+  handleBasicUsageClick,
+  handleIntegrationsClick,
+  handleCustomBoardClick
+}) {
+  return (
+    <div>
+      <PropsPanel
+        history={history}
+        open={state.propsPanel}
+        handlePropsClick={handlePropsClick}
+      />
+      <BasicUseagePanel
+        history={history}
+        open={state.basicUseagePanel}
+        handleBasicUsageClick={handleBasicUsageClick}
+      />
+      <IntegrationsPanel
+        history={history}
+        open={state.integrationPanel}
+        handleIntegrationsClick={handleIntegrationsClick}
+      />
+      <CustomBoardPanel
+        history={history}
+        open={state.customBoardPanel}
+        handleCustomBoardClick={handleCustomBoardClick}
+      />
+
+      <div style={mainContainer}>
+        <p style={{ paddingLeft: 15, paddingRight: 15 }}>
+          <b>Chessboard.jsx</b> is a customizable chessboard component that
+          works as a standalone drag and drop chessboard on standard and touch
+          devices. It integrates easily with&nbsp;
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/jhlywa/chess.js/blob/master/README.md"
+          >
+            chess.js
+          </a>, allowing for move validation, engine integrations, and more.
+        </p>
+        <pre style={highlight}>
+          <code>npm install --save chessboardjsx</code>
+        </pre>
+        <Chessboard
+          calcWidth={calcWidth}
+          boardStyle={boardStyle}
+          position={'2R5/4bppk/1p1p3Q/5R1P/4P3/5P2/r4q1P/7K b - - 6 50'}
+          roughSquare={roughSquare}
+        />
+      </div>
+    </div>
+  );
+}
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: ['Open Sans', 'sans-serif', '-apple-system'].join(',')
+  },
+  palette: {
+    primary: {
+      light: '8f4661',
+      main: '#5f1a37',
+      dark: '#320011'
+    },
+    secondary: {
+      light: '#ffffff',
+      main: '#eeeeee',
+      dark: '#bcbcbc'
+    }
+  }
+});
+
 const mainContainer = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
   color: 'black',
-  marginBottom: 50,
-  backgroundColor: '#7D8DA1'
+  paddingBottom: 50,
+  backgroundColor: 'white',
+  height: '100%',
+  borderRadius: 2
 };
 
 const calcWidth = (screenWidth, screenHeight) =>
@@ -214,6 +247,12 @@ const highlight = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center'
+};
+
+const wideScreenGrid = {
+  backgroundColor: '#7D8DA1',
+  display: 'grid',
+  gridTemplateColumns: `1fr 3fr 1fr`
 };
 
 export const roughSquare = (element, squareWidth) => {

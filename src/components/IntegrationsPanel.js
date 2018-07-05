@@ -137,7 +137,7 @@ function WithMoveValidation({
           <div style={panelStyle}>
             <iframe
               title="move validation example"
-              src="https://codesandbox.io/embed/lp32ojqzqm?codemirror=1&view=preview"
+              src="https://codesandbox.io/embed/lp32ojqzqm?codemirror=1&module=%2Fsrc%2FDemo.js&view=preview"
               style={{
                 width: '95%',
                 height: 500,
@@ -174,7 +174,7 @@ function RandomVsRandom({
           <div style={panelStyle}>
             <iframe
               title="random vs random example"
-              src="https://codesandbox.io/embed/oqkq2yqkwq?codemirror=1&view=preview"
+              src="https://codesandbox.io/embed/oqkq2yqkwq?codemirror=1&module=%2Fsrc%2FDemo.js&view=preview"
               style={{
                 width: '95%',
                 height: 500,
@@ -206,7 +206,7 @@ function Stockfish({ history, pathname, open, handleStockfishClick }) {
           <div style={panelStyle}>
             <iframe
               title="stockfish engine example"
-              src="https://codesandbox.io/embed/432vylv590?codemirror=1&view=preview"
+              src="https://codesandbox.io/embed/432vylv590?codemirror=1&module=%2Fsrc%2FDemo.js&view=preview"
               style={{
                 width: '95%',
                 height: 500,

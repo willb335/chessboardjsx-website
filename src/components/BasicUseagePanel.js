@@ -421,17 +421,23 @@ function MulitpleBoards({
                 flexDirection: 'column'
               }}
             >
-              <Chessboard
-                calcWidth={calcWidth}
-                id="1"
-                position={{ e5: 'wK', e4: 'wP', e7: 'bK' }}
-              />
-              <Chessboard calcWidth={calcWidth} id="2" position="start" />
-              <Chessboard
-                calcWidth={calcWidth}
-                id="3"
-                position="r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R"
-              />
+              <div style={boardContainer}>
+                <Chessboard
+                  calcWidth={calcWidth}
+                  id="1"
+                  position={{ e5: 'wK', e4: 'wP', e7: 'bK' }}
+                />
+              </div>
+              <div style={boardContainer}>
+                <Chessboard calcWidth={calcWidth} id="2" position="start" />
+              </div>
+              <div style={boardContainer}>
+                <Chessboard
+                  calcWidth={calcWidth}
+                  id="3"
+                  position="r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R"
+                />
+              </div>
             </div>
           ) : null}
         </div>
@@ -466,3 +472,5 @@ const highlight = {
   alignItems: 'center',
   overflow: 'scroll'
 };
+
+const boardContainer = { margin: '10px 0 10px 0' };

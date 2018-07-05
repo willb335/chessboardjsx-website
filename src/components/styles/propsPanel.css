@@ -1,6 +1,8 @@
 .table-root {
   width: auto !important;
   overflow: auto !important;
+  background-color: red !important;
+  border-radius: 0 !important;
 }
 
 .props-expansion-root {
