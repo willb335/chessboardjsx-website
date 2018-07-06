@@ -86,7 +86,7 @@
         ]
       },
       "required": false,
-      "description": "The position to display on the board.  Can be either a FEN string or a position object.",
+      "description": "The position to display on the board.  Can be either a FEN string or a position object.\nSee https://www.chessboardjsx.com/basics/fen and https://www.chessboardjsx.com/basics/position-object\nfor examples.",
       "defaultValue": {
         "value": "''",
         "computed": false
@@ -107,7 +107,7 @@
         ]
       },
       "required": false,
-      "description": "If 'black' then row 8 will be the bottom row, if 'white' row 1 will be the bottom row.",
+      "description": "Orientation of the board.",
       "defaultValue": {
         "value": "'white'",
         "computed": false
@@ -175,7 +175,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "The logic to be performed after the drop.  This is where to check if moves are legal with\na library like chess.js.\n\nSignature: function(sourceSquare: string, targetSquare: string) => void",
+      "description": "The logic to be performed on piece drop. See chessboardjsx.com/integrations for examples.\n\nSignature: function(sourceSquare: string, targetSquare: string) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -197,7 +197,7 @@
         "name": "number"
       },
       "required": false,
-      "description": "The time it takes for a piece to slide to the target square.  This is only used\nwhen the next position comes from the position prop.  If the next position comes in before\nthe transition is complete, then the animation will appear glitchey.",
+      "description": "The time it takes for a piece to slide to the target square.  Only used\nwhen the next position comes from the position prop. See chessboardjsx.com/integrations/random for an example",
       "defaultValue": {
         "value": "300",
         "computed": false
@@ -208,7 +208,7 @@
         "name": "bool"
       },
       "required": false,
-      "description": "If false, no notation will be shown on the board.",
+      "description": "If false, notation will not be shown on the board.",
       "defaultValue": {
         "value": "true",
         "computed": false
@@ -260,7 +260,7 @@
         ]
       },
       "required": false,
-      "description": "The id is necessary if more than one board is mounted.\nThis is needed to identify the correct dropzone for the piece.",
+      "description": "The id prop is necessary if more than one board is mounted.\nDrag and drop will not work as expected if not provided.",
       "defaultValue": {
         "value": "'0'",
         "computed": false
@@ -271,7 +271,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function that gives access to the underlying square element.  This\nallows for more customizations with rough.js.\n\nSignature: function(node, squareWidth: number) => void\nnode: the underlying dom node for the square",
+      "description": "A function that gives access to the underlying square element.  It\nallows for customizations with rough.js. See chessboardjsx.com/custom for an\nexample.\n\nSignature: function(node, squareWidth: number) => void\nnode: the underlying dom node for the square",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -282,7 +282,7 @@
         "name": "array"
       },
       "required": false,
-      "description": "A collection of squares, useful for legal move highlighting",
+      "description": "A collection of squares, useful for legal move highlighting.\nSee chessboardjsx.com/integrations/move-validation for an example.",
       "defaultValue": {
         "value": "[]",
         "computed": false
@@ -295,7 +295,7 @@
       "required": false,
       "description": "The style object for the selected squares.",
       "defaultValue": {
-        "value": "{\n  background: `radial-gradient(circle, #fffc00 36%, transparent 40%)`,\n  borderRadius: `50%`\n}",
+        "value": "{\n  background: 'radial-gradient(circle, #fffc00 36%, transparent 40%)',\n  borderRadius: '50%'\n}",
         "computed": false
       }
     },
@@ -304,7 +304,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function to call when the mouse is over the square.  It takes one argument, the square\nthat the mouse is over (onMouseOverSquare(square)).  Not compatable with touch devices.\n\nSignature: function(square: string) => void",
+      "description": "A function to call when the mouse is over a square.\n See chessboardjsx.com/integrations/move-validation for an example.\n\n Signature: function(square: string) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -315,7 +315,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function to call when the mouse has left the square.\n\nSignature: function() => void",
+      "description": "A function to call when the mouse has left the square.\nSee chessboardjsx.com/integrations/move-validation for an example.\n\nSignature: function() => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -328,7 +328,7 @@
       "required": false,
       "description": "The style object for the hovered square.",
       "defaultValue": {
-        "value": "{ boxShadow: `inset 0 0 1px 4px yellow` }",
+        "value": "{ boxShadow: 'inset 0 0 1px 4px yellow' }",
         "computed": false
       }
     },
@@ -348,7 +348,7 @@
         "name": "object"
       },
       "required": false,
-      "description": "An object containing custom pieces.  The values can be imported images or\nsvg objects.",
+      "description": "An object containing custom pieces.  The values can be imported images or\nsvg objects. See chessboardjsx/custom for an example.\n\nSignature: { bP: 'imported black pawn', bK: <svg><path/></svg>,\nwN: 'imported white knight' }",
       "defaultValue": {
         "value": "{}",
         "computed": false
@@ -359,7 +359,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function for responsive width control, returns width.\n\nSignature: function(screenWidth: number, screenHeight: number) => void",
+      "description": "A function for responsive size control, returns the width of the board.\n\nSignature: function(screenWidth: number, screenHeight: number) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -370,7 +370,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function that gives access to the current position object.\n\nSignature: function(currentPosition: object) => void",
+      "description": "A function that gives access to the current position object.\nFor example, getPosition = position => this.setState({ myPosition: position }).\n\nSignature: function(currentPosition: object) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false

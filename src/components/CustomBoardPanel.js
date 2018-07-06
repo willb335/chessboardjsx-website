@@ -18,7 +18,7 @@ class CustomBoardPanel extends Component {
             onClick={() => handleCustomBoardClick(history)}
             expandIcon={<ExpandMoreIcon />}
           >
-            <Typography>Custom Board with Elvis and Lebron</Typography>
+            <Typography>Custom Board with Elvis and Lebron James</Typography>
           </ExpansionPanelSummary>
           {open || pathname === '/custom' ? (
             <div style={panelStyle}>
