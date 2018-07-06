@@ -463,7 +463,7 @@ const panelStyle = {
 const highlight = {
   backgroundColor: '#ACB6C3',
   border: `2px solid #39526f`,
-  borderRadius: 2,
+  // borderRadius: 2,
   padding: 10,
   height: 'auto',
   maxWidth: `90%`,

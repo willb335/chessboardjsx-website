@@ -241,12 +241,13 @@ const boardStyle = {
 const highlight = {
   backgroundColor: '#ACB6C3',
   border: `2px solid #39526f`,
-  borderRadius: 2,
   padding: 5,
-  height: 30,
+  height: 40,
+  fontSize: 15,
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
+  marginTop: 0
 };
 
 const wideScreenGrid = {
