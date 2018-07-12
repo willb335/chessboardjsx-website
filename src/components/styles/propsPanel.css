@@ -1,10 +1,20 @@
 .table-root {
   width: auto !important;
   overflow: auto !important;
-  background-color: red !important;
-  border-radius: 0 !important;
+  border-radius: 0px !important;
+}
+
+.props-expansion-summary {
+  background: linear-gradient(to right, #fff2dd, #aa874f) !important;
+  border-top-right-radius: 3px !important;
+  border-top-left-radius: 3px !important;
+}
+
+.props-expansion-summary-mobile {
+  background: linear-gradient(to right, #fff2dd, #aa874f) !important;
 }
 
 .props-expansion-root {
-  background: linear-gradient(to right, #fff2dd, #aa874f) !important;
+  background: #7d8da1 !important;
+  box-shadow: none !important;
 }

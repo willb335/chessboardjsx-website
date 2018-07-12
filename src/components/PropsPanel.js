@@ -29,13 +29,20 @@ class PropsPanel extends Component {
   };
 
   render() {
-    const { history, open, handlePropsClick } = this.props;
+    const { history, open, handlePropsClick, matches } = this.props;
     const pathname = history.location.pathname;
     return (
       <div>
-        <ExpansionPanel expanded={open || pathname.includes('/props')}>
+        <ExpansionPanel
+          classes={{ root: 'props-expansion-root' }}
+          expanded={open || pathname.includes('/props')}
+        >
           <ExpansionPanelSummary
-            classes={{ root: 'props-expansion-root' }}
+            classes={{
+              root: matches
+                ? 'props-expansion-summary'
+                : 'props-expansion-summary-mobile'
+            }}
             onClick={() => handlePropsClick(history)}
             expandIcon={<ExpandMoreIcon />}
           >

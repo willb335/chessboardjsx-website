@@ -102,6 +102,7 @@ class App extends Component {
                           <div style={wideScreenGrid}>
                             <div />
                             <FrontPage
+                              matches={matches}
                               state={this.state}
                               history={history}
                               handlePropsClick={this.handlePropsClick}
@@ -117,6 +118,7 @@ class App extends Component {
                           </div>
                         ) : (
                           <FrontPage
+                            matches={matches}
                             state={this.state}
                             history={history}
                             handlePropsClick={this.handlePropsClick}
@@ -148,7 +150,8 @@ function FrontPage({
   handlePropsClick,
   handleBasicUsageClick,
   handleIntegrationsClick,
-  handleCustomBoardClick
+  handleCustomBoardClick,
+  matches
 }) {
   return (
     <div>
@@ -156,6 +159,7 @@ function FrontPage({
         history={history}
         open={state.propsPanel}
         handlePropsClick={handlePropsClick}
+        matches={matches}
       />
       <BasicUseagePanel
         history={history}
@@ -227,7 +231,8 @@ const mainContainer = {
   paddingBottom: 50,
   backgroundColor: 'white',
   height: '100%',
-  borderRadius: 2
+  borderBottomLeftRadius: 3,
+  borderBottomRightRadius: 3
 };
 
 const calcWidth = (screenWidth, screenHeight) =>
