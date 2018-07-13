@@ -252,7 +252,8 @@ const highlight = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  marginTop: 0
+  marginTop: 0,
+  borderRadius: 3
 };
 
 const wideScreenGrid = {

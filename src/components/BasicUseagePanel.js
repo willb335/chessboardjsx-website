@@ -463,14 +463,15 @@ const panelStyle = {
 const highlight = {
   backgroundColor: '#ACB6C3',
   border: `2px solid #39526f`,
-  // borderRadius: 2,
+  borderRadius: 3,
   padding: 10,
-  height: 'auto',
   maxWidth: `90%`,
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
-  overflow: 'scroll'
+  overflow: 'scroll',
+  fontSize: 13,
+  height: 'auto'
 };
 
 const boardContainer = { margin: '10px 0 10px 0' };
