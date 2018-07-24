@@ -87,9 +87,9 @@ class IntegrationsPanel extends Component {
           <ExpansionPanelSummary
             classes={{ root: 'integrations-expansion-root' }}
             onClick={() => handleIntegrationsClick(history)}
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={<ExpandMoreIcon color="secondary" />}
           >
-            <Typography>Integrations</Typography>
+            <Typography color="secondary">Integrations</Typography>
           </ExpansionPanelSummary>
           <RandomVsRandom
             history={history}
@@ -231,5 +231,5 @@ const panelStyle = {
   width: '100%',
   paddingTop: 10,
   paddingBottom: 10,
-  backgroundColor: '#7d8da1'
+  backgroundColor: '#adbdd2'
 };

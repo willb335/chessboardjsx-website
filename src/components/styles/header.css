@@ -8,7 +8,7 @@
 }
 
 .header-root {
-  background-color: #7d8da1 !important;
+  background-color: #394a5c !important;
 }
 
 .title {
@@ -28,9 +28,10 @@
 .github-button-root {
   font-size: 17px !important;
   font-weight: 300 !important;
-  border: 2px solid white !important;
+  border: 1px solid black !important;
   width: 95% !important;
   max-width: 500px !important;
-  background-color: #506072 !important;
+  background-color: #7d8da1 !important;
   border-radius: 3px !important;
+  color: black !important;
 }

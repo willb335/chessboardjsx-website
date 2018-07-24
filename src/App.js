@@ -97,39 +97,17 @@ class App extends Component {
                   path="/"
                   render={({ history }) => (
                     <MediaQuery minDeviceWidth={1024}>
-                      {matches =>
-                        matches ? (
-                          <div style={wideScreenGrid}>
-                            <div />
-                            <FrontPage
-                              matches={matches}
-                              state={this.state}
-                              history={history}
-                              handlePropsClick={this.handlePropsClick}
-                              handleBasicUsageClick={this.handleBasicUsageClick}
-                              handleIntegrationsClick={
-                                this.handleIntegrationsClick
-                              }
-                              handleCustomBoardClick={
-                                this.handleCustomBoardClick
-                              }
-                            />
-                            <div />
-                          </div>
-                        ) : (
-                          <FrontPage
-                            matches={matches}
-                            state={this.state}
-                            history={history}
-                            handlePropsClick={this.handlePropsClick}
-                            handleBasicUsageClick={this.handleBasicUsageClick}
-                            handleIntegrationsClick={
-                              this.handleIntegrationsClick
-                            }
-                            handleCustomBoardClick={this.handleCustomBoardClick}
-                          />
-                        )
-                      }
+                      {matches => (
+                        <FrontPage
+                          matches={matches}
+                          state={this.state}
+                          history={history}
+                          handlePropsClick={this.handlePropsClick}
+                          handleBasicUsageClick={this.handleBasicUsageClick}
+                          handleIntegrationsClick={this.handleIntegrationsClick}
+                          handleCustomBoardClick={this.handleCustomBoardClick}
+                        />
+                      )}
                     </MediaQuery>
                   )}
                 />
@@ -155,34 +133,18 @@ function FrontPage({
 }) {
   return (
     <div>
-      <PropsPanel
-        history={history}
-        open={state.propsPanel}
-        handlePropsClick={handlePropsClick}
-        matches={matches}
-      />
-      <BasicUseagePanel
-        history={history}
-        open={state.basicUseagePanel}
-        handleBasicUsageClick={handleBasicUsageClick}
-      />
-      <IntegrationsPanel
-        history={history}
-        open={state.integrationPanel}
-        handleIntegrationsClick={handleIntegrationsClick}
-      />
-      <CustomBoardPanel
-        history={history}
-        open={state.customBoardPanel}
-        handleCustomBoardClick={handleCustomBoardClick}
-      />
-
       <div style={mainContainer}>
-        <p style={{ paddingLeft: 15, paddingRight: 15 }}>
+        <p
+          style={{
+            paddingLeft: matches ? 65 : 15,
+            paddingRight: matches ? 65 : 15
+          }}
+        >
           <b>Chessboard.jsx</b> is a customizable chessboard component that
           works as a standalone drag and drop chessboard on standard and touch
           devices. It integrates easily with&nbsp;
           <a
+            style={{ color: 'blue' }}
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/jhlywa/chess.js/blob/master/README.md"
@@ -199,6 +161,45 @@ function FrontPage({
           position={'2R5/4bppk/1p1p3Q/5R1P/4P3/5P2/r4q1P/7K b - - 6 50'}
           roughSquare={roughSquare}
         />
+      </div>
+      <div style={{ margin: 0 }}>
+        <PropsPanel
+          history={history}
+          open={state.propsPanel}
+          handlePropsClick={handlePropsClick}
+          matches={matches}
+        />
+        <BasicUseagePanel
+          history={history}
+          open={state.basicUseagePanel}
+          handleBasicUsageClick={handleBasicUsageClick}
+        />
+        <IntegrationsPanel
+          history={history}
+          open={state.integrationPanel}
+          handleIntegrationsClick={handleIntegrationsClick}
+        />
+        <CustomBoardPanel
+          history={history}
+          open={state.customBoardPanel}
+          handleCustomBoardClick={handleCustomBoardClick}
+        />
+      </div>
+      <div
+        style={{
+          height: 150,
+          width: '100%',
+          alignText: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#394A5C',
+          color: 'white',
+          flexWrap: 'wrap',
+          padding: 20
+        }}
+      >
+        <div>Chessboard.jsx is released under the MIT License</div>
       </div>
     </div>
   );
@@ -229,10 +230,10 @@ const mainContainer = {
   flexDirection: 'column',
   color: 'black',
   paddingBottom: 50,
-  backgroundColor: 'white',
+  backgroundColor: '#adbdd2',
   height: '100%',
-  borderBottomLeftRadius: 3,
-  borderBottomRightRadius: 3
+  borderTopLeftRadius: 3,
+  borderTopRightRadius: 3
 };
 
 const calcWidth = (screenWidth, screenHeight) =>
@@ -244,9 +245,9 @@ const boardStyle = {
 };
 
 const highlight = {
-  backgroundColor: '#ACB6C3',
+  backgroundColor: 'white',
   border: `2px solid #39526f`,
-  padding: 5,
+  padding: `0px 10px 0px 10px`,
   height: 40,
   fontSize: 15,
   display: 'flex',
@@ -254,12 +255,6 @@ const highlight = {
   alignItems: 'center',
   marginTop: 0,
   borderRadius: 3
-};
-
-const wideScreenGrid = {
-  backgroundColor: '#7D8DA1',
-  display: 'grid',
-  gridTemplateColumns: `1fr 3fr 1fr`
 };
 
 export const roughSquare = (element, squareWidth) => {

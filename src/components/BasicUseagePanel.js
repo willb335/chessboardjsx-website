@@ -158,11 +158,11 @@ class BasicUseagePanel extends Component {
       <div>
         <ExpansionPanel expanded={open || pathname.includes('/basics')}>
           <ExpansionPanelSummary
-            classes={{ root: 'basic-expansion-root' }}
+            classes={{ root: 'basic-expansion-summary-root' }}
             onClick={() => handleBasicUsageClick(history)}
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={<ExpandMoreIcon color="secondary" />}
           >
-            <Typography>Basic Usage</Typography>
+            <Typography color="secondary">Basic Usage</Typography>
           </ExpansionPanelSummary>
           <EmptyBoard
             history={history}
@@ -457,7 +457,7 @@ const panelStyle = {
   width: '100%',
   paddingTop: 10,
   paddingBottom: 20,
-  backgroundColor: '#7d8da1'
+  backgroundColor: '#adbdd2'
 };
 
 const highlight = {

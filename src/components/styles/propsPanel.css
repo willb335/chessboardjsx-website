@@ -5,16 +5,17 @@
 }
 
 .props-expansion-summary {
-  background: linear-gradient(to right, #fff2dd, #aa874f) !important;
-  border-top-right-radius: 3px !important;
-  border-top-left-radius: 3px !important;
-}
-
-.props-expansion-summary-mobile {
-  background: linear-gradient(to right, #fff2dd, #aa874f) !important;
+  /* background: linear-gradient(to right, #fff2dd, #aa874f) !important; */
+  /* border-top-right-radius: 3px !important;
+  border-top-left-radius: 3px !important; */
+  background-color: #394a5c !important;
 }
 
 .props-expansion-root {
   background: #7d8da1 !important;
   box-shadow: none !important;
 }
+
+/* .contained-styles-on {
+  background-color: green !important;
+} */

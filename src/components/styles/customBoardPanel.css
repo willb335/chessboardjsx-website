@@ -1,3 +1,12 @@
+.custom-expansion-summary-root {
+  /* background: linear-gradient(to right, #d9b394, #784922) !important; */
+  background-color: #394a5c !important;
+  border-top: 1px solid #7d8da1 !important;
+  border-bottom: 1px solid #7d8da1 !important;
+}
+
 .custom-expansion-root {
-  background: linear-gradient(to right, #d9b394, #784922) !important;
+  /* background: linear-gradient(to right, #d9b394, #784922) !important; */
+  background-color: #394a5c !important;
+  box-shadow: none !important;
 }

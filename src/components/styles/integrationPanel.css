@@ -1,15 +1,16 @@
 .integrations-expansion-root {
-  background: linear-gradient(to right, #fff2dd, #aa874f) !important;
+  /* background: linear-gradient(to right, #fff2dd, #aa874f) !important; */
+  background-color: #394a5c !important;
 }
 
 .moveValidation-expansion-root {
-  background-color: #adbdd2 !important;
+  background-color: white !important;
 }
 
 .randomVsRandom-expansion-root {
-  background-color: #adbdd2 !important;
+  background-color: white !important;
 }
 
 .stockfish-expansion-root {
-  background-color: #adbdd2 !important;
+  background-color: white !important;
 }

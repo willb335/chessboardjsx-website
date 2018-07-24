@@ -9,11 +9,23 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
-import docgen from '../getProps';
+import { version1 } from '../getProps';
+import { version2 } from '../getProps';
 import './styles/propsPanel.css';
 
 class PropsPanel extends Component {
+  state = { v1Button: false, currentButton: true };
+
+  handleV1ButtonClick = () => {
+    this.setState({ v1Button: true, currentButton: false });
+  };
+
+  handleV2ButtonClick = () => {
+    this.setState({ v1Button: false, currentButton: true });
+  };
+
   getType = prop => {
     const name = `${prop.type.name}`;
     if (prop.type.value) {
@@ -28,8 +40,12 @@ class PropsPanel extends Component {
     return <div>{name}</div>;
   };
 
+  getProps = () => {
+    return this.state.v1Button ? version1 : version2;
+  };
+
   render() {
-    const { history, open, handlePropsClick, matches } = this.props;
+    const { history, open, handlePropsClick } = this.props;
     const pathname = history.location.pathname;
     return (
       <div>
@@ -39,17 +55,40 @@ class PropsPanel extends Component {
         >
           <ExpansionPanelSummary
             classes={{
-              root: matches
-                ? 'props-expansion-summary'
-                : 'props-expansion-summary-mobile'
+              root: 'props-expansion-summary'
             }}
             onClick={() => handlePropsClick(history)}
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={<ExpandMoreIcon color="secondary" />}
           >
-            <Typography>Props</Typography>
+            <Typography color="secondary">Props</Typography>
           </ExpansionPanelSummary>
           {open || pathname === '/props' ? (
             <Paper classes={{ root: 'table-root' }}>
+              <div
+                style={{
+                  backgroundColor: '#506072',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: 5
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color={this.state.v1Button ? 'primary' : 'secondary'}
+                  onClick={this.handleV1ButtonClick}
+                >
+                  Version 1.0
+                </Button>
+                <div style={{ width: 20 }} />
+                <Button
+                  variant="contained"
+                  color={this.state.currentButton ? 'primary' : 'secondary'}
+                  onClick={this.handleV2ButtonClick}
+                >
+                  Current Version
+                </Button>
+              </div>
               <Table>
                 <TableHead>
                   <TableRow style={headerRowStyle}>
@@ -68,7 +107,7 @@ class PropsPanel extends Component {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {docgen.map((p, i) => {
+                  {this.getProps().map((p, i) => {
                     return (
                       p && (
                         <TableRow key={p.name} style={tableRowStyle}>
@@ -100,7 +139,7 @@ class PropsPanel extends Component {
 
 export default PropsPanel;
 
-const tableRowStyle = { backgroundColor: '#adbdd2' };
+const tableRowStyle = { backgroundColor: 'white' };
 const tableCellStyle = { color: 'black' };
 const headerRowStyle = { backgroundColor: '#506072' };
-const headerCellStyle = { color: 'white', fontWeight: 600 };
+const headerCellStyle = { color: 'white' };

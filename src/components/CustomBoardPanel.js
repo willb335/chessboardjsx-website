@@ -12,13 +12,18 @@ class CustomBoardPanel extends Component {
     const pathname = history.location.pathname;
     return (
       <div>
-        <ExpansionPanel expanded={open || pathname.includes('/custom')}>
+        <ExpansionPanel
+          classes={{ root: 'custom-expansion-root' }}
+          expanded={open || pathname.includes('/custom')}
+        >
           <ExpansionPanelSummary
-            classes={{ root: 'custom-expansion-root' }}
+            classes={{ root: 'custom-expansion-summary-root' }}
             onClick={() => handleCustomBoardClick(history)}
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={<ExpandMoreIcon color="secondary" />}
           >
-            <Typography>Custom Board with Elvis and Lebron James</Typography>
+            <Typography color="secondary">
+              Custom Board with Elvis and Lebron James
+            </Typography>
           </ExpansionPanelSummary>
           {open || pathname === '/custom' ? (
             <div style={panelStyle}>
@@ -52,5 +57,5 @@ const panelStyle = {
   width: '100%',
   paddingTop: 10,
   paddingBottom: 10,
-  backgroundColor: '#7d8da1'
+  backgroundColor: '#adbdd2'
 };

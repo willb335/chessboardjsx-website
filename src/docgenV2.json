@@ -1,0 +1,399 @@
+{
+  "description": "",
+  "displayName": "Chessboard",
+  "methods": [
+    {
+      "name": "updateWindowDimensions",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "getDerivedStateFromProps",
+      "docblock": null,
+      "modifiers": [
+        "static"
+      ],
+      "params": [
+        {
+          "name": "props",
+          "type": null
+        },
+        {
+          "name": "state",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "wasManuallyDropped",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "bool",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "wasSquareClicked",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "bool",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "setPosition",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "{ sourceSquare, targetSquare, piece }",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "setTouchState",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "getWidth",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    }
+  ],
+  "props": {
+    "id": {
+      "type": {
+        "name": "union",
+        "value": [
+          {
+            "name": "string"
+          },
+          {
+            "name": "number"
+          }
+        ]
+      },
+      "required": false,
+      "description": "The id prop is necessary if more than one board is mounted.\nDrag and drop will not work as expected if not provided.",
+      "defaultValue": {
+        "value": "'0'",
+        "computed": false
+      }
+    },
+    "position": {
+      "type": {
+        "name": "union",
+        "value": [
+          {
+            "name": "string"
+          },
+          {
+            "name": "object"
+          }
+        ]
+      },
+      "required": false,
+      "description": "The position to display on the board.  Can be either a FEN string or a position object.\nSee https://www.chessboardjsx.com/basics/fen and https://www.chessboardjsx.com/basics/position-object\nfor examples.",
+      "defaultValue": {
+        "value": "''",
+        "computed": false
+      }
+    },
+    "pieces": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "An object with functions returning jsx as values. Signature: { wK:\nfunction({ isDragging, squareWidth, droppedPiece, targetSquare, sourceSquare }) => jsx }",
+      "defaultValue": {
+        "value": "{}",
+        "computed": false
+      }
+    },
+    "width": {
+      "type": {
+        "name": "number"
+      },
+      "required": false,
+      "description": "The width in pixels.  For a responsive width, use calcWidth.",
+      "defaultValue": {
+        "value": "560",
+        "computed": false
+      }
+    },
+    "orientation": {
+      "type": {
+        "name": "enum",
+        "value": [
+          {
+            "value": "'white'",
+            "computed": false
+          },
+          {
+            "value": "'black'",
+            "computed": false
+          }
+        ]
+      },
+      "required": false,
+      "description": "Orientation of the board.",
+      "defaultValue": {
+        "value": "'white'",
+        "computed": false
+      }
+    },
+    "showNotation": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "If false, notation will not be shown on the board.",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    },
+    "sparePieces": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "If true, spare pieces will appear above and below the board.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
+    "draggable": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "If false, the pieces will not be draggable",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    },
+    "dropOffBoard": {
+      "type": {
+        "name": "enum",
+        "value": [
+          {
+            "value": "'snapback'",
+            "computed": false
+          },
+          {
+            "value": "'trash'",
+            "computed": false
+          }
+        ]
+      },
+      "required": false,
+      "description": "The behavior of the piece when dropped off the board. 'snapback' brings the piece\nback to it's original square and 'trash' deletes the piece from the board",
+      "defaultValue": {
+        "value": "'snapback'",
+        "computed": false
+      }
+    },
+    "transitionDuration": {
+      "type": {
+        "name": "number"
+      },
+      "required": false,
+      "description": "The time it takes for a piece to slide to the target square.  Only used\nwhen the next position comes from the position prop. See chessboardjsx.com/integrations/random for an example",
+      "defaultValue": {
+        "value": "300",
+        "computed": false
+      }
+    },
+    "boardStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the board.",
+      "defaultValue": {
+        "value": "{}",
+        "computed": false
+      }
+    },
+    "lightSquareStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the light square.",
+      "defaultValue": {
+        "value": "{ backgroundColor: 'rgb(240, 217, 181)' }",
+        "computed": false
+      }
+    },
+    "darkSquareStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the dark square.",
+      "defaultValue": {
+        "value": "{ backgroundColor: 'rgb(181, 136, 99)' }",
+        "computed": false
+      }
+    },
+    "squareStyles": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "An object containing custom styles for squares.  For example {'e4': {backgroundColor: 'orange'},\n'd4': {backgroundColor: 'blue'}}.  See chessboardjsx.com/integrations/move-validation for an example",
+      "defaultValue": {
+        "value": "{}",
+        "computed": false
+      }
+    },
+    "dropSquareStyle": {
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "The style object for the current drop square. { backgroundColor: 'sienna' }",
+      "defaultValue": {
+        "value": "{ boxShadow: 'inset 0 0 1px 4px yellow' }",
+        "computed": false
+      }
+    },
+    "calcWidth": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function for responsive size control, returns the width of the board.\n\nSignature: function(screenWidth: number, screenHeight: number) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "roughSquare": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function that gives access to the underlying square element.  It\nallows for customizations with rough.js. See chessboardjsx.com/custom for an\nexample.\n\nSignature: function(squareElement, squareWidth: number) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onMouseOverSquare": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when the mouse is over a square.\n See chessboardjsx.com/integrations/move-validation for an example.\n\n Signature: function(square: string) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onMouseOutSquare": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when the mouse has left the square.\nSee chessboardjsx.com/integrations/move-validation for an example.\n\nSignature: function() => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onDrop": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "The logic to be performed on piece drop. See chessboardjsx.com/integrations for examples.\n\nSignature: function(sourceSquare: string, targetSquare: string) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "getPosition": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function that gives access to the current position object.\nFor example, getPosition = position => this.setState({ myPosition: position }).\n\nSignature: function(currentPosition: object) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onDragOverSquare": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when a piece is dragged over a specific square.\n\nSignature: function(square: string) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onSquareClick": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when a square is clicked.\n\nSignature: function(square: string) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onPieceClick": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when a piece is clicked.\n\nSignature: function(piece: string) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    },
+    "onSquareRightClick": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when a square is right clicked.\n\nSignature: function(square: string) => void",
+      "defaultValue": {
+        "value": "() => {}",
+        "computed": false
+      }
+    }
+  }
+}
