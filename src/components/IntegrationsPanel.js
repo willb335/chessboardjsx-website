@@ -131,13 +131,13 @@ function WithMoveValidation({
           onClick={() => handleWithMoveValidationClick(history)}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography>With Move Validation</Typography>
+          <Typography>With Move Validation and 'Click to Move'</Typography>
         </ExpansionPanelSummary>
         {open || pathname === '/integrations/move-validation' ? (
           <div style={panelStyle}>
             <iframe
               title="move validation example"
-              src="https://codesandbox.io/embed/lp32ojqzqm?codemirror=1&module=%2Fsrc%2FDemo.js&view=preview"
+              src="https://codesandbox.io/embed/x332zqpkl4?codemirror=1&module=%2Fsrc%2Fintegrations%2FWithMoveValidation.js&view=preview"
               style={{
                 width: '95%',
                 height: 500,
@@ -174,7 +174,7 @@ function RandomVsRandom({
           <div style={panelStyle}>
             <iframe
               title="random vs random example"
-              src="https://codesandbox.io/embed/oqkq2yqkwq?codemirror=1&module=%2Fsrc%2FDemo.js&view=preview"
+              src="https://codesandbox.io/embed/94xm78rpwp?codemirror=1&module=%2Fsrc%2Fintegrations%2FRandomVsRandomGame.js&view=preview"
               style={{
                 width: '95%',
                 height: 500,
@@ -206,7 +206,7 @@ function Stockfish({ history, pathname, open, handleStockfishClick }) {
           <div style={panelStyle}>
             <iframe
               title="stockfish engine example"
-              src="https://codesandbox.io/embed/432vylv590?codemirror=1&module=%2Fsrc%2FDemo.js&view=preview"
+              src="https://codesandbox.io/embed/432vylv590?codemirror=1&module=%2Fsrc%2Fintegrations%2FStockfish.js&view=preview"
               style={{
                 width: '95%',
                 height: 500,
