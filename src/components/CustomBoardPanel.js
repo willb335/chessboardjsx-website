@@ -29,7 +29,7 @@ class CustomBoardPanel extends Component {
             <div style={panelStyle}>
               <iframe
                 title="custom board example"
-                src="https://codesandbox.io/embed/61l3np87pw?codemirror=1&module=%2Fsrc%2FDemo.js&view=preview"
+                src="https://codesandbox.io/embed/21r26yw13j?codemirror=1&module=%2Fsrc%2Fintegrations%2FCustomBoard.js&view=preview"
                 style={{
                   width: '95%',
                   height: 500,
