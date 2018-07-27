@@ -127,7 +127,7 @@
         "name": "object"
       },
       "required": false,
-      "description": "An object with functions returning jsx as values. Signature: { wK:\nfunction({ isDragging, squareWidth, droppedPiece, targetSquare, sourceSquare }) => jsx }",
+      "description": "An object with functions returning jsx as values(render prop).\nSee https://www.chessboardjsx.com/custom\nSignature: { wK:\nfunction({ isDragging, squareWidth, droppedPiece, targetSquare, sourceSquare }) => jsx }",
       "defaultValue": {
         "value": "{}",
         "computed": false
@@ -290,7 +290,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function for responsive size control, returns the width of the board.\n\nSignature: function(screenWidth: number, screenHeight: number) => void",
+      "description": "A function for responsive size control, returns the width of the board.\n\nSignature: function({ screenWidth: number, screenHeight: number }) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -301,7 +301,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function that gives access to the underlying square element.  It\nallows for customizations with rough.js. See chessboardjsx.com/custom for an\nexample.\n\nSignature: function(squareElement, squareWidth: number) => void",
+      "description": "A function that gives access to the underlying square element.  It\nallows for customizations with rough.js. See chessboardjsx.com/custom for an\nexample.\n\nSignature: function({ squareElement: node, squareWidth: number }) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -323,7 +323,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function to call when the mouse has left the square.\nSee chessboardjsx.com/integrations/move-validation for an example.\n\nSignature: function() => void",
+      "description": "A function to call when the mouse has left the square.\nSee chessboardjsx.com/integrations/move-validation for an example.\n\nSignature: function(square: string) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -334,7 +334,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "The logic to be performed on piece drop. See chessboardjsx.com/integrations for examples.\n\nSignature: function(sourceSquare: string, targetSquare: string) => void",
+      "description": "The logic to be performed on piece drop. See chessboardjsx.com/integrations for examples.\n\nSignature: function({ sourceSquare: string, targetSquare: string, piece: string }) => void",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -392,6 +392,28 @@
       "description": "A function to call when a square is right clicked.\n\nSignature: function(square: string) => void",
       "defaultValue": {
         "value": "() => {}",
+        "computed": false
+      }
+    },
+    "allowDrag": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A function to call when a piece drag is initiated.  Returns true if the piece is draggable,\nfalse if not.\n\nSignature: function( { piece: string, sourceSquare: string } ) => bool",
+      "defaultValue": {
+        "value": "() => true",
+        "computed": false
+      }
+    },
+    "computerMove": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "A function to call when a piece drag is initiated.  Returns true if the piece is draggable,\nfalse if not.\n\nSignature: function( { piece: string, sourceSquare: string } ) => bool",
+      "defaultValue": {
+        "value": "false",
         "computed": false
       }
     }
