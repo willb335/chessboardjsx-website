@@ -446,7 +446,7 @@ function MulitpleBoards({
   );
 }
 
-const calcWidth = (screenWidth, screenHeight) =>
+const calcWidth = ({ screenWidth, screenHeight }) =>
   (screenWidth || screenHeight) < 550 ? 300 : 500;
 
 const panelStyle = {

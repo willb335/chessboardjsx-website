@@ -236,7 +236,7 @@ const mainContainer = {
   borderTopRightRadius: 3
 };
 
-const calcWidth = (screenWidth, screenHeight) =>
+const calcWidth = ({ screenWidth, screenHeight }) =>
   (screenWidth || screenHeight) < 550 ? 300 : 500;
 
 const boardStyle = {
