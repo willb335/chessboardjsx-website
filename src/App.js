@@ -257,7 +257,7 @@ const highlight = {
   borderRadius: 3
 };
 
-export const roughSquare = (element, squareWidth) => {
+export const roughSquare = ({ squareElement: element, squareWidth }) => {
   let rc = rough.svg(element);
   const chessSquare = rc.rectangle(0, 0, squareWidth, squareWidth, {
     roughness: 0.8,
