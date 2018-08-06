@@ -290,7 +290,7 @@
         "name": "func"
       },
       "required": false,
-      "description": "A function for responsive size control, returns the width of the board.\n\nSignature: function({ screenWidth: number, screenHeight: number }) => void",
+      "description": "A function for responsive size control, returns the width of the board.\n\nSignature: function({ screenWidth: number, screenHeight: number }) => number",
       "defaultValue": {
         "value": "() => {}",
         "computed": false
@@ -403,17 +403,6 @@
       "description": "A function to call when a piece drag is initiated.  Returns true if the piece is draggable,\nfalse if not.\n\nSignature: function( { piece: string, sourceSquare: string } ) => bool",
       "defaultValue": {
         "value": "() => true",
-        "computed": false
-      }
-    },
-    "computerMove": {
-      "type": {
-        "name": "bool"
-      },
-      "required": false,
-      "description": "A function to call when a piece drag is initiated.  Returns true if the piece is draggable,\nfalse if not.\n\nSignature: function( { piece: string, sourceSquare: string } ) => bool",
-      "defaultValue": {
-        "value": "false",
         "computed": false
       }
     }
