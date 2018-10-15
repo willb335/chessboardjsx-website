@@ -405,6 +405,17 @@
         "value": "() => true",
         "computed": false
       }
+    },
+    "undo": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "When set to true it undos previous move",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
     }
   }
 }
