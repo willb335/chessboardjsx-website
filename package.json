@@ -7,7 +7,7 @@
     "@material-ui/icons": "2.0.1",
     "chessboardjsx": "2.0.1",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react-dom": "^16.4.2",
     "react-responsive": "4.1.0",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
